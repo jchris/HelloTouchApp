@@ -20,6 +20,8 @@ Clone it, open in Xcode, and hit run. (Works on iPad or iPhone)
 
 This repo is the result of a 1/2 day experiment, and is really meant to illustrate the proof of concept. The contained app isn't yet configured to do any syncing, or much in the way of database access at all. But now that I've done the work of bootstrapping a WebView and pointing it at TouchDB, the rest of the code can be done in JavaScript.
 
+One thing that is cool about this is that it's not actually using HTTP as the transport layer, yet another way it is more lightweight than a traditional CouchApp. More about that on [the TouchDB docs page.](https://github.com/couchbaselabs/TouchDB-iOS/wiki/Using-TouchDB)
+
 ## What's Next?
 
 This app is the beginning of a project I have in mind. The next steps include:
