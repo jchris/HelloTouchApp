@@ -46,7 +46,7 @@
 	NSString *htmlString = [[NSString alloc] initWithData: 
                             [readHandle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
     
-    CouchDocument *doc = [database documentWithID:@"default"];
+    CouchDocument *doc = [database documentWithID:@"hello"];
     RESTOperation* op = [doc putProperties:[NSDictionary dictionaryWithObject: @"bar"
                                                                        forKey: @"foo"]];
     [op wait];
