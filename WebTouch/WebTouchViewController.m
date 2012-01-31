@@ -37,9 +37,7 @@
         exit(-1);
     }
     NSLog(@"TouchDB start %@",database.URL);
-    
-//    NSString *htmlString = @"<body><h1>Hello Touch</h1></body>";
-    
+        
     NSString *path = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
 	NSFileHandle *readHandle = [NSFileHandle fileHandleForReadingAtPath:path];
     
