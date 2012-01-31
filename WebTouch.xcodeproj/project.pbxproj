@@ -23,15 +23,15 @@
 		79F731F914D767BC00B38030 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		79F731FB14D767BC00B38030 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		79F731FD14D767BC00B38030 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		79F7320114D767BC00B38030 /* WebTouch-Info.plist */ = {isa = PBXFileReference; path = "WebTouch-Info.plist"; sourceTree = "<group>"; };
+		79F7320114D767BC00B38030 /* WebTouch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WebTouch-Info.plist"; sourceTree = "<group>"; };
 		79F7320314D767BC00B38030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		79F7320514D767BC00B38030 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		79F7320714D767BD00B38030 /* WebTouch-Prefix.pch */ = {isa = PBXFileReference; path = "WebTouch-Prefix.pch"; sourceTree = "<group>"; };
-		79F7320814D767BD00B38030 /* WebTouchAppDelegate.h */ = {isa = PBXFileReference; path = WebTouchAppDelegate.h; sourceTree = "<group>"; };
+		79F7320714D767BD00B38030 /* WebTouch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebTouch-Prefix.pch"; sourceTree = "<group>"; };
+		79F7320814D767BD00B38030 /* WebTouchAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebTouchAppDelegate.h; sourceTree = "<group>"; };
 		79F7320914D767BD00B38030 /* WebTouchAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebTouchAppDelegate.m; sourceTree = "<group>"; };
 		79F7320C14D767BD00B38030 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		79F7320F14D767BD00B38030 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		79F7321114D767BD00B38030 /* WebTouchViewController.h */ = {isa = PBXFileReference; path = WebTouchViewController.h; sourceTree = "<group>"; };
+		79F7321114D767BD00B38030 /* WebTouchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebTouchViewController.h; sourceTree = "<group>"; };
 		79F7321214D767BD00B38030 /* WebTouchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebTouchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

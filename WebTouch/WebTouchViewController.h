@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WebTouchViewController : UIViewController
+@interface WebTouchViewController : UIViewController <UIWebViewDelegate>
+{
+    UIWebView *webView;
+}
+
+@property (nonatomic, retain) IBOutlet UIWebView *webView;
 
 @end

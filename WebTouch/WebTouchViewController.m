@@ -10,6 +10,8 @@
 
 @implementation WebTouchViewController
 
+@synthesize webView;
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -20,8 +22,10 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSString *htmlString = @"<body><h1>Hello Touch</h1></body>";
+    [self.webView loadHTMLString:htmlString baseURL:nil];
+    [super viewDidLoad];
 }
 
 - (void)viewDidUnload
