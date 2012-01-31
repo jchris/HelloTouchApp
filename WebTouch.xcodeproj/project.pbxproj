@@ -16,6 +16,10 @@
 		79F7320D14D767BD00B38030 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F7320B14D767BD00B38030 /* MainStoryboard_iPhone.storyboard */; };
 		79F7321014D767BD00B38030 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F7320E14D767BD00B38030 /* MainStoryboard_iPad.storyboard */; };
 		79F7321314D767BD00B38030 /* WebTouchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F7321214D767BD00B38030 /* WebTouchViewController.m */; };
+		79F7321F14D76FD600B38030 /* CouchCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F7321D14D76FD500B38030 /* CouchCocoa.framework */; };
+		79F7322014D76FD600B38030 /* TouchDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F7321E14D76FD500B38030 /* TouchDB.framework */; };
+		79F7322214D7701000B38030 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F7322114D7701000B38030 /* libsqlite3.dylib */; };
+		79F7323614D77B4900B38030 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 79F7323514D77B4900B38030 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,10 @@
 		79F7320F14D767BD00B38030 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		79F7321114D767BD00B38030 /* WebTouchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebTouchViewController.h; sourceTree = "<group>"; };
 		79F7321214D767BD00B38030 /* WebTouchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebTouchViewController.m; sourceTree = "<group>"; };
+		79F7321D14D76FD500B38030 /* CouchCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchCocoa.framework; path = WebTouch/Frameworks/CouchCocoa.framework; sourceTree = "<group>"; };
+		79F7321E14D76FD500B38030 /* TouchDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TouchDB.framework; path = WebTouch/Frameworks/TouchDB.framework; sourceTree = "<group>"; };
+		79F7322114D7701000B38030 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		79F7323514D77B4900B38030 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,9 +48,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F7322214D7701000B38030 /* libsqlite3.dylib in Frameworks */,
 				79F731FA14D767BC00B38030 /* UIKit.framework in Frameworks */,
 				79F731FC14D767BC00B38030 /* Foundation.framework in Frameworks */,
 				79F731FE14D767BC00B38030 /* CoreGraphics.framework in Frameworks */,
+				79F7321F14D76FD600B38030 /* CouchCocoa.framework in Frameworks */,
+				79F7322014D76FD600B38030 /* TouchDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +63,10 @@
 		79F731EA14D767BC00B38030 = {
 			isa = PBXGroup;
 			children = (
+				79F7322114D7701000B38030 /* libsqlite3.dylib */,
+				79F7323414D77AE100B38030 /* Resources */,
+				79F7321D14D76FD500B38030 /* CouchCocoa.framework */,
+				79F7321E14D76FD500B38030 /* TouchDB.framework */,
 				79F731FF14D767BC00B38030 /* WebTouch */,
 				79F731F814D767BC00B38030 /* Frameworks */,
 				79F731F614D767BC00B38030 /* Products */,
@@ -99,6 +114,14 @@
 				79F7320714D767BD00B38030 /* WebTouch-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79F7323414D77AE100B38030 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				79F7323514D77B4900B38030 /* index.html */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +177,7 @@
 				79F7320414D767BC00B38030 /* InfoPlist.strings in Resources */,
 				79F7320D14D767BD00B38030 /* MainStoryboard_iPhone.storyboard in Resources */,
 				79F7321014D767BD00B38030 /* MainStoryboard_iPad.storyboard in Resources */,
+				79F7323614D77B4900B38030 /* index.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,9 +274,14 @@
 		79F7321714D767BD00B38030 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/WebTouch/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WebTouch/WebTouch-Prefix.pch";
 				INFOPLIST_FILE = "WebTouch/WebTouch-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -261,9 +290,14 @@
 		79F7321814D767BD00B38030 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/WebTouch/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WebTouch/WebTouch-Prefix.pch";
 				INFOPLIST_FILE = "WebTouch/WebTouch-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

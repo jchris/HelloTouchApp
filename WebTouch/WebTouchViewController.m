@@ -7,6 +7,8 @@
 //
 
 #import "WebTouchViewController.h"
+#import <CouchCocoa/CouchCocoa.h>
+#import <CouchCocoa/CouchTouchDBServer.h>
 
 @implementation WebTouchViewController
 
@@ -23,8 +25,47 @@
 - (void)viewDidLoad
 {
 	// Do any additional setup after loading the view, typically from a nib.
-    NSString *htmlString = @"<body><h1>Hello Touch</h1></body>";
-    [self.webView loadHTMLString:htmlString baseURL:nil];
+    CouchTouchDBServer* server = [CouchTouchDBServer sharedInstance];
+    if (server.error) {
+        NSLog(@"TouchDB fail %@",server.error);
+        exit(-1);
+    }
+    CouchDatabase *database = [server databaseNamed: @"default"];
+    NSError* error;
+    if (![database ensureCreated: &error]) {
+        NSLog(@"TouchDB fail %@",error);
+        exit(-1);
+    }
+    NSLog(@"TouchDB start %@",database.URL);
+    
+//    NSString *htmlString = @"<body><h1>Hello Touch</h1></body>";
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
+	NSFileHandle *readHandle = [NSFileHandle fileHandleForReadingAtPath:path];
+    
+	NSString *htmlString = [[NSString alloc] initWithData: 
+                            [readHandle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
+    
+    CouchDocument *doc = [database documentWithID:@"default"];
+    RESTOperation* op = [doc putProperties:[NSDictionary dictionaryWithObject: @"bar"
+                                                                       forKey: @"foo"]];
+    [op wait];
+                         
+    CouchRevision *rev = doc.currentRevision;
+    NSLog(@"make rev %@",rev);
+
+    
+    CouchAttachment* attach = [rev createAttachmentWithName:@"index.html" type:@"text/html; charset=utf-8"];
+    op = [attach PUT:[htmlString dataUsingEncoding:NSUTF8StringEncoding]];
+    NSLog(@"make attachment %@",attach);
+
+    [op wait];
+    NSURL *attachURL = attach.unversionedURL;
+    
+    NSLog(@"attachURL %@",attachURL);
+
+    [self.webView loadRequest:[NSURLRequest requestWithURL:attachURL]];
+//    [self.webView loadHTMLString:htmlString baseURL:nil];
     [super viewDidLoad];
 }
 
